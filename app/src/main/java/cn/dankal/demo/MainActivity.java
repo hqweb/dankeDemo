@@ -3,6 +3,7 @@ package cn.dankal.demo;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
 import org.angmarch.views.NiceSpinner;
 
@@ -22,6 +23,9 @@ public class MainActivity extends BaseActivity implements ProblemContact.Problem
     RecyclerView recyclerViewProList;
     @BindView(R.id.problem_categroy)
     RecyclerView recyclerViewCategroy;
+    @BindView(R.id.shrink_pro)
+    ImageView shrinkImg;
+
     private ProblemPresenter presenter = new ProblemPresenter();
     RecyclerViewAdapter adapterProblem;
     @Override
@@ -66,10 +70,13 @@ public class MainActivity extends BaseActivity implements ProblemContact.Problem
      */
     @OnClick(R.id.shrink_pro)
     public void onShrinkClicked(View view) {
-        if(recyclerViewCategroy.getVisibility() == View.GONE)
+        if(recyclerViewCategroy.getVisibility() == View.GONE) {
             recyclerViewCategroy.setVisibility(View.VISIBLE);
+            shrinkImg.setImageResource(R.drawable.up_arrow);
+        }
         else{
             recyclerViewCategroy.setVisibility(View.GONE);
+            shrinkImg.setImageResource(R.drawable.down_arrow);
         }
     }
 

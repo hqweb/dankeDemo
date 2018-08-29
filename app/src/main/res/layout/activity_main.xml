@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#ffff">
+    android:background="#ffffff">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -21,16 +21,18 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:gravity="center"
             android:textSize="25dp"
             android:text="常见问题"
+            android:textColor="#4A4A4A"
             />
 
         <View
             android:id="@+id/oneLine"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#E6E6FA"
+            android:background="#F6F6F6"
             android:layout_marginBottom="10dp"
             android:layout_below="@+id/title"
             />
@@ -42,7 +44,9 @@
             android:text="问题分类"
             android:layout_marginLeft="38dp"
             android:textSize="25dp"
-            android:layout_below="@+id/oneLine"/>
+            android:layout_marginBottom="20dp"
+            android:layout_below="@+id/oneLine"
+            android:textColor="#4A4A4A"/>
 
         <ImageView
             android:id="@+id/shrink_pro"
@@ -68,7 +72,7 @@
             android:id="@+id/twoLine"
             android:layout_width="match_parent"
             android:layout_height="15dp"
-            android:background="#E6E6FA"
+            android:background="#F5F5F5"
             android:layout_marginBottom="10dp"
             android:layout_below="@+id/problem_categroy"/>
 

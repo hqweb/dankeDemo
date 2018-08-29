@@ -66,7 +66,7 @@ public class ProblemPresenter implements ProblemContact.ProblemPresenter {
      * 取问题分类和问题列表的name,title
      */
     void getProblemNmae(List<ProblemCategory> proCategroyList, List<ProblemList> proListList){
-        problemCategoryNmae.add("问题分类");
+
         for(ProblemCategory proCa:proCategroyList){
             problemCategoryNmae.add(proCa.getName());
         }
