@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#ffff">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_arrow"
+            />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:text="常见问题"
+            />
+
+        <View
+            android:id="@+id/oneLine"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#E6E6FA"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/title"
+            />
+
+        <TextView
+            android:id="@+id/textCat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="问题分类"
+            android:layout_marginLeft="38dp"
+            android:textSize="25dp"
+            android:layout_below="@+id/oneLine"/>
+
+        <ImageView
+            android:id="@+id/shrink_pro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/down_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/oneLine"
+            android:paddingRight="10dp"
+            />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/problem_categroy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_marginLeft="38dp"
+            android:visibility="gone"
+            android:layout_below="@+id/textCat"/>
+
+        <View
+            android:id="@+id/twoLine"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:background="#E6E6FA"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/problem_categroy"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/problem_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="38dp"
+
+            android:layout_below="@+id/twoLine"/>
+    </RelativeLayout>
+
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>
