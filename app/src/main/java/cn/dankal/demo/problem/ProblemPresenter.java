@@ -38,7 +38,6 @@ public class ProblemPresenter implements ProblemContact.ProblemPresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .unsubscribeOn(Schedulers.io())
                 .onErrorResumeNext(t -> {
-                    Log.v("aaaa","error");
                     return Observable.error(ExceptionHandle.handleException(t));
                 })
                 .subscribe(new PreHandlerDialogSubscriber<String>(problemView) {
@@ -54,8 +53,9 @@ public class ProblemPresenter implements ProblemContact.ProblemPresenter {
 
                         getProblemNmae(proCategroyList, proListList);
 
-                        problemView.showCategroy(problemCategoryNmae);
                         problemView.showList(problemListTitle);
+                        problemView.showCategroy(problemCategoryNmae);
+
                     }
 
                 });

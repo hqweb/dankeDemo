@@ -1,7 +1,9 @@
 package cn.dankal.demo;
 
+import android.annotation.SuppressLint;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -11,6 +13,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import butterknife.BindInt;
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.dankal.basic_lib.base.BaseActivity;
@@ -26,8 +29,11 @@ public class MainActivity extends BaseActivity implements ProblemContact.Problem
     @BindView(R.id.shrink_pro)
     ImageView shrinkImg;
 
+    ImageView dotImg;
+
     private ProblemPresenter presenter = new ProblemPresenter();
-    RecyclerViewAdapter adapterProblem;
+    RecyclerViewAdapter adapterProblemCat;
+    RecyclerViewAdapter adapterProblemList;
     @Override
     protected int contentViewLayoutResId() {
         return R.layout.activity_main;
@@ -47,8 +53,8 @@ public class MainActivity extends BaseActivity implements ProblemContact.Problem
     public void showCategroy(LinkedList<String> proCategroyList)
     {
         recyclerViewCategroy.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        adapterProblem = new RecyclerViewAdapter(proCategroyList);
-        recyclerViewCategroy.setAdapter(adapterProblem);
+        adapterProblemCat = new RecyclerViewAdapter(proCategroyList);
+        recyclerViewCategroy.setAdapter(adapterProblemCat);
 
     }
 
@@ -59,8 +65,9 @@ public class MainActivity extends BaseActivity implements ProblemContact.Problem
     @Override
     public void showList(LinkedList<String> proListTitle) {
         recyclerViewProList.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        adapterProblem = new RecyclerViewAdapter(proListTitle);
-        recyclerViewProList.setAdapter(adapterProblem);
+        adapterProblemList = new RecyclerViewAdapter(proListTitle);
+        recyclerViewProList.setAdapter(adapterProblemList);
+
 
     }
 
@@ -73,10 +80,16 @@ public class MainActivity extends BaseActivity implements ProblemContact.Problem
         if(recyclerViewCategroy.getVisibility() == View.GONE) {
             recyclerViewCategroy.setVisibility(View.VISIBLE);
             shrinkImg.setImageResource(R.drawable.up_arrow);
+            //显示问题列表前面的点
+            RecyclerViewAdapter.ImgVisibility(View.GONE);
+            adapterProblemList.notifyDataSetChanged();
         }
         else{
             recyclerViewCategroy.setVisibility(View.GONE);
             shrinkImg.setImageResource(R.drawable.down_arrow);
+            //隐藏问题列表前面的点
+            RecyclerViewAdapter.ImgVisibility(View.VISIBLE);
+            adapterProblemList.notifyDataSetChanged();
         }
     }
 

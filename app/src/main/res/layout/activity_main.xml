@@ -161,7 +161,7 @@
         app:layout_constraintTop_toBottomOf="@+id/shrink_pro"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"/>
+        app:layout_constraintHorizontal_bias="0.08"/>
 
     <View
         android:id="@+id/two_line"
@@ -178,7 +178,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.08"/>
+        app:layout_constraintGuide_percent="0.06"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/problem_list"
@@ -187,7 +187,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/guideline_main"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/two_line" />
+        app:layout_constraintTop_toBottomOf="@+id/two_line"
+        />
 
 
 

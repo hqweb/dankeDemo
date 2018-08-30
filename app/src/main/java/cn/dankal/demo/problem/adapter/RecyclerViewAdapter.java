@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -20,7 +21,7 @@ import cn.dankal.demo.R;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private List<String> list;
-
+    public static int ImgVisibi = View.GONE;
     public RecyclerViewAdapter(List<String> data) {
         this.list = data;
     }
@@ -37,6 +38,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
        // Log.v("aaaa","bindvie");
         holder.mText.setText(list.get(position));
+        if(ImgVisibi == View.VISIBLE)
+            holder.dotImg.setVisibility(View.VISIBLE);
+        else{
+            holder.dotImg.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -47,9 +53,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     class ViewHolder extends RecyclerView.ViewHolder{
         TextView mText;
+        ImageView dotImg;
         public ViewHolder(View itemView) {
             super(itemView);
             mText = itemView.findViewById(R.id.item_pro);
+            dotImg = itemView.findViewById(R.id.dot_img);
         }
+    }
+    public static void ImgVisibility(int ImgVis){
+        ImgVisibi = ImgVis;
     }
 }
